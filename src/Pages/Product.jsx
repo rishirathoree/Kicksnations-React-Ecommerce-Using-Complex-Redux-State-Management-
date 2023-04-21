@@ -1,9 +1,10 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import jordans from '../images/jordans.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../actions/Cartaction'
 const Product = () => {
+    const navigate = useNavigate()
     const { id } = useParams()
     const dispatch = useDispatch()
   const products = useSelector((state) => state.Products.data.products);
@@ -31,7 +32,10 @@ const Product = () => {
                 <li  className='font-bold text-[10px] w-2/3'>Lace closure</li>
             </ul>
             <button
-            onClick={()=>{dispatch(addToCart(singleProduct))}}
+            onClick={()=>{
+                dispatch(addToCart(singleProduct),
+                navigate('/cart')
+                )}}
             className='w-full font-light text-[10px] p-3 bg-black text-white'>ADD TO CART</button>
             </div>
         </div>

@@ -33,7 +33,7 @@ export const Home = () => {
               return (
                 <Link key={items.id} to={`/products/${items.id}`}>
                   <div className='w-full h-full bg-[#f5f5f7e2]'>
-                  <div className='product-img w-full h-60 flex items-center justify-center  w-full'>
+                  <div className='product-img h-60 flex items-center justify-center  w-full'>
                     <img src={jordans}  alt='' />
                   </div>
                   <div className='flex flex-col info-div items-center justify-center'>
