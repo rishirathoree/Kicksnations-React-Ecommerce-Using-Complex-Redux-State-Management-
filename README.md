@@ -11,6 +11,13 @@ Copy code
 npm install
 npm start
 
+Cart Functionalities
+This project includes several cart functionalities, including:
+Black dot indication: A black dot is displayed on the cart icon in the header when there are items in the cart.
+Cart items remover: Users can remove individual items from the cart through a remove button in the sidebar drawer.
+Cart items add: Users can add items to the cart through an add button on the product details page.
+All cart remover: Users can remove all items from the cart through a button in the sidebar drawer.
+
 Usage
 Once the project is running, you can view it by opening a web browser and navigating to http://localhost:3000.
 
