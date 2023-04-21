@@ -21,7 +21,7 @@ const Cart = () => {
               return (
                 <div key={items.id} className='cart-item border-t flex  py-4 justify-between'>
               <div className='flex'>
-              <div className='w-40 h-40 flex items-center flex-col justify-center'>
+              <div className='lg:w-40 lg:h-40 md:w-40 md:h-40 sm:w-24 sm:h-24 flex items-center flex-col justify-center'>
                 <img src={jordans} className='' alt="" />
                 </div>
                 <div>
