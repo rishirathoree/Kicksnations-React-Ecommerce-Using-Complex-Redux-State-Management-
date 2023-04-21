@@ -34,8 +34,8 @@ const Navbar = () => {
   ))}
   <NavLink
         activeclassname="active-category"
-        className='text-[12px] hover:text-slate-600 my-4 uppercase duration-200 font-light mr-6' to='/account'>
-        Account
+        className='text-[12px] hover:text-slate-600 my-4 uppercase duration-200 font-light mr-6' to='/cart'>
+        Cart
       </NavLink>
     </div>
   <div className='mt-4' >

@@ -19,9 +19,9 @@ export const Home = () => {
       <div className='lg:mt-[116px] md:mt-[116px] sm:mt-[92px]'>
         <div className='grid lg:grid-cols-5 sm:grid-cols-2 md:grid-cols-3'>
           {pending ? (
-            dummy.map((items)=>{
+            dummy.map((items,index)=>{
                 return(
-                    <div className='product-img h-60 flex animate-pulse items-center justify-center  w-full'>
+                    <div key={index} className='product-img h-60 flex animate-pulse items-center justify-center  w-full'>
               <img src={jordans} className='w-9 h-8 ' alt='' />
             </div>
                 )
@@ -33,8 +33,8 @@ export const Home = () => {
               return (
                 <Link key={items.id} to={`/products/${items.id}`}>
                   <div className='w-full h-full bg-[#f5f5f7e2]'>
-                  <div className='product-img h-60 flex items-center justify-center  w-full'>
-                    <img src={jordans} alt='' />
+                  <div className='product-img w-full h-60 flex items-center justify-center  w-full'>
+                    <img src={jordans}  alt='' />
                   </div>
                   <div className='flex flex-col info-div items-center justify-center'>
                     <p className='font-light text-[10px] w-60 text-center mt-2 '>
