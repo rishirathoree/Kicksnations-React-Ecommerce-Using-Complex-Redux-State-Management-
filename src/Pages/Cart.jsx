@@ -57,7 +57,7 @@ const Cart = () => {
             })
            }
           </div>
-        </div>
+        </div> 
         <div className='cart-right-div'>
           <div>
             <p className='font-bold text-xsm'>Checkout</p>
