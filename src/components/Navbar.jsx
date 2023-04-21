@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
         { /* Conditionally rendering the category-div div */ }
         { /* It will only be visible when the screen size is not sm */ }
-        <div className='category-div lg:flex md:flex sm:hidden justify-center p-1 items-center'>
+        <div className='category-div lg:flex md:hidden sm:hidden justify-center p-1 items-center'>
           <div className='grid lg:grid-cols-6' >
           {navs.map((item, index) => (
               <NavLink key={index}
