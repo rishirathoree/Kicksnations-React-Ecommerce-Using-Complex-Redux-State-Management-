@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .active{
-    font-weight: bold;
+    font-weight: bolder;
 }
 .mt-29{
     margin-top: 116px;

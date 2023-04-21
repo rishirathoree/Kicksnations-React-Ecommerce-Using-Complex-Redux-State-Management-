@@ -37,13 +37,13 @@ export const Basketball = () => {
                     <img src={jordans} alt='' />
                   </div>
                   <div className='flex flex-col info-div items-center justify-center'>
-                    <p className='font-light text-[10px] w-60 text-center mt-2 '>
+                    <p className='font-light text-[10px] text-center mt-2 '>
                       {items.category}
                     </p>
-                    <p className='font-bold text-[10px] w-60 text-center mt-2 '>
+                    <p className='font-bold text-[10px] text-center mt-2 '>
                       {items.title}
                     </p>
-                    <p className='font-light text-[12px] w-60 text-center mt-2 '>
+                    <p className='font-light text-[12px] text-center mt-2 '>
                       $ {items.price}
                     </p>
                   </div>

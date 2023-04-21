@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 
 
-const navs = ['footwear', 'apparel', 'girls', 'basketball', 'slides', 'accessories'];
+const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
 
 const Navbar = () => {
   const [MenuVisible, setMenuVisible] = useState('-translate-x-full')
@@ -28,17 +28,17 @@ const Navbar = () => {
       <NavLink
       key={index}
         activeclassname="active-category"
-        className='text-[12px] hover:text-slate-600 my-4 uppercase duration-200 font-light mr-6' to={`/${items}`}>
+        className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to={`/${items}`}>
         {items}
       </NavLink>
   ))}
   <NavLink
         activeclassname="active-category"
-        className='text-[12px] hover:text-slate-600 my-4 uppercase duration-200 font-light mr-6' to='/cart'>
+        className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to='/cart'>
         Cart
       </NavLink>
     </div>
-  <div className='mt-4' >
+  <div className=' mt-12' >
     <i className='bx bx-sm hover:text-blue-500 duration-500 bxl-instagram'></i>
     <i className='bx bx-sm hover:text-blue-500 duration-500 bxl-twitter'></i>
     <i className='bx bx-sm hover:text-blue-500 duration-500 bxl-snapchat'></i>
@@ -68,15 +68,15 @@ const Navbar = () => {
         { /* Conditionally rendering the category-div div */ }
         { /* It will only be visible when the screen size is not sm */ }
         <div className='category-div lg:flex md:flex sm:hidden justify-center p-1 items-center'>
+          <div className='grid lg:grid-cols-6' >
           {navs.map((item, index) => (
-            <div className='grid lg:grid-cols-{navs.length}' key={index}>
-              <NavLink
+              <NavLink key={index}
                 activeclassname="active-category"
-                className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light mr-6' to={`/${item}`}>
+                className='text-[12px] hover:text-slate-800 uppercase duration-200 font-light mr-6' to={`/${item}`}>
                 {item}
               </NavLink>
-            </div>
           ))}
+          </div>
           
         </div>
       </div>

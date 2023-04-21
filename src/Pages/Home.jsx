@@ -37,13 +37,13 @@ export const Home = () => {
                     <img src={jordans}  alt='' />
                   </div>
                   <div className='flex flex-col info-div items-center justify-center'>
-                    <p className='font-light text-[10px] w-60 text-center mt-2 '>
+                    <p className='font-light text-[10px]  text-center mt-2 '>
                       {items.category}
                     </p>
-                    <p className='font-bold text-[10px] w-60 text-center mt-2 '>
+                    <p className='font-bold text-[10px]  text-center mt-2 '>
                       {items.title}
                     </p>
-                    <p className='font-light text-[12px] w-60 text-center mt-2 '>
+                    <p className='font-light text-[12px]  text-center mt-2 '>
                       $ {items.price}
                     </p>
                   </div>
@@ -55,8 +55,8 @@ export const Home = () => {
           {error ? (
             dummy.map((items,index)=>{
               return(
-                  <div key={index} className='product-img  h-60 flex flex-col animate-pulse items-center justify-center  w-full'>
-            <img src={jordans} className='w-9 h-8 ' alt='' />
+                  <div key={index} className='product-img  h-60 flex flex-col animate-pulse items-center justify-center w-full'>
+            <img src={jordans} alt='' />
             <p className='font-light text-[12px]'>Slow down, put sneakers on.</p>
           </div>
               )
