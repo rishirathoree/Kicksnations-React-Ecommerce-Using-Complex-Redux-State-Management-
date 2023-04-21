@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
+import { useSelector } from 'react-redux';
 
 
 const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
 
 const Navbar = () => {
   const [MenuVisible, setMenuVisible] = useState('-translate-x-full')
-
+  const Cart = useSelector((state)=>state.Cart.cart)
   const toggleMenu = () => {
     setMenuVisible(MenuVisible === '-translate-x-full' ? 'translate-x-0' : '-translate-x-full')
   }
@@ -57,8 +58,12 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className='flex gap-4 items-center'>
-            <div>
-            <NavLink to="/cart"><i className='bx p-1  bx-shopping-bag'></i></NavLink>
+            <div className='relative'>
+            <NavLink to="/cart">
+              <i className='bx p-1 border rounded-md bx-shopping-bag'>
+              </i>
+              <div className={`w-[10px] h-[10px] -top-1 -right-1 absolute rounded-full bg-black opacity-${Cart.length > 0 ? "100" : "0"}`}></div></NavLink>
+
             </div>
             <div className='lg:block md:block sm:hidden'>
             <i className='bx p-1  bx-user'></i>

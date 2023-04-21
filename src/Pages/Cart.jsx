@@ -30,7 +30,7 @@ const Cart = () => {
                 <p className='font-light text-xsm'>Price : {items.price}</p>
                 <div className='flex items-center gap-4'>
                 <select className='focus:outline-none font-xsm bg-slate-50 rounded-sm'>
-                <option className='font-xsm font-light selected disabled'>Quantity</option>
+                <option className='font-xsm font-light selected disabled'>Qty</option>
                   <option className='font-xsm font-light'>1</option>
                   <option className='font-xsm font-light'>2</option>
                   <option className='font-xsm font-light'>3</option>
@@ -66,7 +66,7 @@ const Cart = () => {
             </div>
             <div className='flex items-center justify-between'>
             <p className='font-bold my-2 text-xsm'>SHIPPING CHARGES</p>
-            <p className='font-bold text-xsm'>$20</p>
+            <p className='font-bold text-xsm'>${(totalPrice/99).toFixed(2)} <i title='We take one percent of total amount' className='bx bx-error-circle'></i> </p>
             </div>
             <button className='font-light text-xs bg-black text-white w-full p-3'>Checkout</button>
             <button className='font-light mt-4 text-xs bg-black text-white w-full p-3'>REMOVE ALL ITEMS</button>
