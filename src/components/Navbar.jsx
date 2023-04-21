@@ -23,15 +23,21 @@ const Navbar = () => {
     </div>
                 {/* hamburger menusidebar  */}
                 <div className={`lg:w-1/5 md:w-1/5 sm:w-2/5 duration-100 -z-[100] lg:top-[118px] md:top-[118px] sm:top-[92px] left-0 absolute h-screen p-4 ${MenuVisible} bg-white border`}>
-  {navs.map((item, index) => (
-    <div className='grid grid-cols-{navs.length}' key={index}>
+                <div className={`grid grid-cols-${navs.length}`} >
+  {navs.map((items, index) => (
       <NavLink
+      key={index}
         activeclassname="active-category"
-        className='text-[12px] hover:text-slate-600 my-4 uppercase duration-200 font-light mr-6' to={`/${item}`}>
-        {item}
+        className='text-[12px] hover:text-slate-600 my-4 uppercase duration-200 font-light mr-6' to={`/${items}`}>
+        {items}
+      </NavLink>
+  ))}
+  <NavLink
+        activeclassname="active-category"
+        className='text-[12px] hover:text-slate-600 my-4 uppercase duration-200 font-light mr-6' to='/account'>
+        Account
       </NavLink>
     </div>
-  ))}
   <div className='mt-4' >
     <i className='bx bx-sm hover:text-blue-500 duration-500 bxl-instagram'></i>
     <i className='bx bx-sm hover:text-blue-500 duration-500 bxl-twitter'></i>
@@ -54,7 +60,7 @@ const Navbar = () => {
             <div>
             <NavLink to="/cart"><i className='bx p-1  bx-shopping-bag'></i></NavLink>
             </div>
-            <div>
+            <div className='lg:block md:block sm:hidden'>
             <i className='bx p-1  bx-user'></i>
             </div>
           </div>
