@@ -1,7 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import jordans from '../images/jordans.png'
-import { RemoveCart } from '../actions/Cartaction'
+import { EmptyCart, RemoveCart } from '../actions/Cartaction'
+
 const Cart = () => {
     const Cart = useSelector((state)=>state.Cart)
     const dispatch = useDispatch()
@@ -69,7 +70,9 @@ const Cart = () => {
             <p className='font-bold text-xsm'>${(totalPrice/99).toFixed(2)} <i title='We take one percent of total amount' className='bx bx-error-circle'></i> </p>
             </div>
             <button className='font-light text-xs bg-black text-white w-full p-3'>Checkout</button>
-            <button className='font-light mt-4 text-xs bg-black text-white w-full p-3'>REMOVE ALL ITEMS</button>
+            <button 
+            onClick={()=>{dispatch(EmptyCart())}}
+            className='font-light mt-4 text-xs bg-black text-white w-full p-3'>REMOVE ALL ITEMS</button>
           </div>
         </div>
       </div>
