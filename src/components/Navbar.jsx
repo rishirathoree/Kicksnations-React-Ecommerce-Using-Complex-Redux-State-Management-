@@ -62,8 +62,8 @@ const Navbar = () => {
             <NavLink to="/cart">
               <i className='bx p-1 border rounded-md bx-shopping-bag'>
               </i>
-              <div className={`w-[10px] h-[10px] -top-1 -right-1 absolute rounded-full bg-black opacity-${Cart.length > 0 ? "100" : "0"}`}></div></NavLink>
-
+              {Cart.length > 0 && <div className={`w-[10px] h-[10px] -top-1 -right-1 absolute rounded-full bg-black`}></div>}
+              </NavLink>
             </div>
             <div className='lg:block md:block sm:hidden'>
             <i className='bx p-1  bx-user'></i>
