@@ -5,7 +5,13 @@ import Cart from "./Pages/Cart";
 import { Footwear } from "./Pages/Footwear";
 import { Girls } from "./Pages/Girls";
 import { Home } from "./Pages/Home";
+<<<<<<< HEAD
 import { NoPagefound } from "./Pages/NoPagefound";
+=======
+import Nopagefound from "./Pages/Nopagefound";
+
+
+>>>>>>> 70e48a884cb0e851cb198c18bef75c24b4dbdc84
 import Product from "./Pages/Product";
 import { Slides } from "./Pages/Slides";
 import Navbar from "./components/Navbar";
