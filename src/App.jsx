@@ -5,9 +5,7 @@ import Cart from "./Pages/Cart";
 import { Footwear } from "./Pages/Footwear";
 import { Girls } from "./Pages/Girls";
 import { Home } from "./Pages/Home";
-import Nopagefound from "./Pages/NoPagefound";
-
-
+import { NoPagefound } from "./Pages/NoPagefound";
 import Product from "./Pages/Product";
 import { Slides } from "./Pages/Slides";
 import Navbar from "./components/Navbar";
@@ -27,8 +25,8 @@ function App() {
         <Route path="/Slides" element={<Slides />} />
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Apparel" element={<Apparel />} />
+        <Route path="*" element={<NoPagefound />} />
         <Route path="/Accessories" element={<Accessories />} />
-        <Route path="*" element={<Nopagefound />} />
         <Route path="/Products/:id" element={<Product />} />
         
       </Routes>

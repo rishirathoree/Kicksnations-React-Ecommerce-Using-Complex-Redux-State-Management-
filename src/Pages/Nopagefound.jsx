@@ -1,8 +1,7 @@
 import React from 'react'
-import jordans from '../images/jordans.png';
-import { useNavigate } from 'react-router-dom';
-
-const Nopagefound = () => {
+import { useNavigate } from 'react-router-dom'
+import jordans from "../images/jordans.png"
+export const NoPagefound = () => {
     const navigate = useNavigate()
   return (
     <>
@@ -19,4 +18,3 @@ const Nopagefound = () => {
     )
 }
 
-export default Nopagefound
