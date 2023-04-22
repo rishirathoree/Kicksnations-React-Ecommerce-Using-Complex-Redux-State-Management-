@@ -10,7 +10,7 @@ const Product = () => {
   const products = useSelector((state) => state.Products.data.products);
   const singleProduct = products.find((product)=>product.id === parseInt(id))
   const {brand,title,price,description} = singleProduct
-  const similarProducts = products.filter((item) => item.brand === singleProduct.brand && item.id !== singleProduct.id);
+  const similarProducts = products.filter((item) => item.category === singleProduct.category && item.id !== singleProduct.id);
     
   return (
     <>
@@ -50,9 +50,9 @@ const Product = () => {
         </div>
     </div>
     <div className='w-full p-4 h-full'>
-        <p className='font-lighter text-xsm'>Related Products</p>
+        <p className='font-lighter text-xsm'>Similar Products</p>
         <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4'>
-        {similarProducts.map((items)=>{
+        {similarProducts.splice(0,4).map((items)=>{
             return(
                 <Link key={items.id} to={`/products/${items.id}`}>
                     <div key={items.id} className='w-full h-full bg-[#f5f5f7e2]'>
