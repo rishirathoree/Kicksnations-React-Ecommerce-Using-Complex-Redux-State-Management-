@@ -23,7 +23,21 @@ const Navbar = () => {
       <div className={`duration-300 ${MenuVisible === 'translate-x-0' ? 'translate-y-1 rotate-45' : ''} w-4 h-[1px] bg-black`}></div>
     </div>
                 {/* hamburger menusidebar  */}
-                <div className={`lg:w-1/5 md:w-1/5 sm:w-2/5 duration-100 -z-[100] lg:top-[118px] md:top-[118px] sm:top-[92px] left-0 absolute h-screen p-4 ${MenuVisible} bg-white border`}>
+                <div className={`lg:w-1/5 md:w-1/5 overflow-y-auto sm:w-2/5 duration-100 -z-[100] lg:top-[118px] md:top-[118px] sm:top-[92px] left-0 absolute h-screen p-4 ${MenuVisible} bg-white border`}>
+                  <div>
+                    {/* if the authoutication is enabled then turn on navlinks  */}
+                  {/* <NavLink to="/account"> */}
+                  <div className='flex border-b  p-4 my-2  items-center justify-between'>
+                    <div>
+                      <div className='w-8 h-8 bg-gray-100 rounded-full'></div>
+                    </div>
+                    <div>
+                      <p className='font-light text-xsm'>Hello</p>
+                      <p className='font-light text-xsm'>Rishi</p>
+                    </div>
+                  </div>
+                  {/* </NavLink> */}
+                  </div>
                 <div className={`grid grid-cols-${navs.length}`} >
   {navs.map((items, index) => (
       <NavLink
@@ -39,6 +53,7 @@ const Navbar = () => {
         Cart
       </NavLink>
     </div>
+
   <div className=' mt-12' >
     <i className='bx bx-sm hover:text-blue-500 duration-500 bxl-instagram'></i>
     <i className='bx bx-sm hover:text-blue-500 duration-500 bxl-twitter'></i>
