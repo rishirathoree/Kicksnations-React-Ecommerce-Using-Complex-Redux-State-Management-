@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import jordans from '../images/jordans.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../actions/Cartaction'
@@ -10,8 +10,10 @@ const Product = () => {
   const products = useSelector((state) => state.Products.data.products);
   const singleProduct = products.find((product)=>product.id === parseInt(id))
   const {brand,title,price,description} = singleProduct
-  console.log(brand);
+  const similarProducts = products.filter((item) => item.brand === singleProduct.brand && item.id !== singleProduct.id);
+    
   return (
+    <>
     <div className='mt-32 flex w-full h-full'>
         <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4'>
             <div className='w-full h-full flex items-center'>
@@ -33,13 +35,48 @@ const Product = () => {
             </ul>
             <button
             onClick={()=>{
-                dispatch(addToCart(singleProduct),
-                navigate('/cart')
+                dispatch(addToCart(singleProduct)
                 )}}
             className='w-full font-light text-[10px] p-3 bg-black text-white'>ADD TO CART</button>
+            <div className='flex items-center gap-4 mt-4 justify-between'>
+            <button 
+            onClick={()=>{history.back()}}
+            className='w-full font-light text-[10px] p-3 bg-black text-white'>GO BACK</button>
+            <button 
+            onClick={()=>{navigate('/cart')}}
+            className='w-full font-light text-[10px] p-3 bg-black text-white'>GO TO CART</button>
+            </div>
             </div>
         </div>
     </div>
+    <div className='w-full p-4 h-full'>
+        <p className='font-lighter text-xsm'>Related Products</p>
+        <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4'>
+        {similarProducts.map((items)=>{
+            return(
+                <Link key={items.id} to={`/products/${items.id}`}>
+                    <div key={items.id} className='w-full h-full bg-[#f5f5f7e2]'>
+                  <div className='product-img h-60 flex items-center justify-center  w-full'>
+                    <img src={jordans}  alt='' />
+                  </div>
+                  <div className='flex flex-col info-div items-center justify-center'>
+                    <p className='font-light text-[10px]  text-center mt-2 '>
+                    {items.brand}
+                    </p>
+                    <p className='font-bold text-[10px]  text-center mt-2 '>
+                    {items.title}
+                    </p>
+                    <p className='font-light text-[12px]  text-center mt-2 '>
+                    {items.price}
+                    </p>
+                  </div>
+                </div>
+                </Link>
+            )
+        })}
+        </div>
+    </div>
+    </>
   )
 }
 

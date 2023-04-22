@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className='w-full fixed top-0 z-50 bg-white right-0 p-1 shadow'>
         <div className='w-full h-full  p-4 flex justify-between items-center'>
             <div>
-            <div className="menu-toggle" onClick={toggleMenu}>
+            <div className="menu-toggle p-1" onClick={toggleMenu}>
       <div className={`duration-300 ${MenuVisible === 'translate-x-0' ? 'translate-y-[5px] -rotate-45' : 'translate-y-0 rotate-0'} w-4 h-[1px] bg-black`}></div>
       <div className={`my-1 duration-300 ${MenuVisible === 'translate-x-0' ? 'hidden' : ''} w-4 h-[1px] bg-black`}></div>
       <div className={`duration-300 ${MenuVisible === 'translate-x-0' ? 'translate-y-1 rotate-45' : ''} w-4 h-[1px] bg-black`}></div>
