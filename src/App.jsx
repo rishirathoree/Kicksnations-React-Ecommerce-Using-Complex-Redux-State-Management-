@@ -5,7 +5,7 @@ import Cart from "./Pages/Cart";
 import { Footwear } from "./Pages/Footwear";
 import { Girls } from "./Pages/Girls";
 import { Home } from "./Pages/Home";
-import Nopagefound from "./Pages/NoPagefound";
+import Nopagefound from "./Pages/Nopagefound";
 
 
 import Product from "./Pages/Product";
