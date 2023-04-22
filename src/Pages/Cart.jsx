@@ -9,7 +9,7 @@ const Cart = () => {
     const totalPrice = Cart.cart.reduce((accmulator,items)=>accmulator + items.price,0)
     console.log(totalPrice);
   return (
-    <div className='lg:mt-[116px] p-4 md:mt-[116px] sm:mt-[92px]'>
+    <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
       <div className='grid w-full h-full lg:grid-cols-2 gap-4 md:grid-cols-2 sm:grid-cols-1'>
         <div className='p-4 border cart-left-div   '>
           <div className='flex items-center py-4  border-black border-opacity-10 justify-between'>

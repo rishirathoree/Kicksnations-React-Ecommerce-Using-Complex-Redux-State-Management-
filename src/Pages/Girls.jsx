@@ -16,7 +16,7 @@ export const Girls = () => {
 
   return (
     <>
-      <div className='lg:mt-[116px] md:mt-[116px] sm:mt-[92px]'>
+      <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
         <div className='grid lg:grid-cols-5 sm:grid-cols-2 md:grid-cols-3'>
           {pending ? (
             dummy.map((items)=>{

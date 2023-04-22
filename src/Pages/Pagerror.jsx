@@ -5,7 +5,7 @@ export const Pagerror = () => {
     const navigate = useNavigate()
     return (
       <>
-      <div className='lg:mt-[116px] md:mt-[116px] sm:mt-[92px]'>
+      <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
           <div className='w-full flex justify-center flex-col items-center h-screen'>
               <img src={jordans} className='w-60 animate-bounce h-40' alt="" />
               <p className='font-lighter  text-xsm'>404 Page Found</p>
