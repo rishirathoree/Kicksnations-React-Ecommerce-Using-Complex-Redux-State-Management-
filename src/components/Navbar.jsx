@@ -23,6 +23,11 @@ const Navbar = () => {
     </div>
                 {/* hamburger menusidebar  */}
                 <div className={`lg:w-1/5 md:w-1/5 overflow-y-auto sm:w-2/5 duration-100 -z-[100] lg:top-[118px] md:top-[92px] sm:top-[92px] left-0 absolute h-screen p-4 ${MenuVisible} bg-white border`}>
+                <NavLink
+        activeclassname="active-category"
+        className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to='/account'>
+        My account
+      </NavLink>
                 <div className={`grid grid-cols-${navs.length}`} >
   {navs.map((items, index) => (
       <NavLink
@@ -37,6 +42,7 @@ const Navbar = () => {
         className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to='/cart'>
         Cart
       </NavLink>
+      
     </div>
 
   <div className=' mt-12' >
