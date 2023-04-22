@@ -52,6 +52,11 @@ const Navbar = () => {
         className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to='/cart'>
         Cart
       </NavLink>
+      <NavLink
+        activeclassname="active-category"
+        className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to='/login'>
+        Cart
+      </NavLink>
     </div>
 
   <div className=' mt-12' >
