@@ -3,6 +3,7 @@ import jordans from '../images/jordans.png';
 import { FetchUser } from '../actions/Productaction';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Shoesimageslider } from '../components/Shoesimageslider';
 
 export const Home = () => {
   const dummy = [1, 2, 3, 4, 5, 6,7,8,8,9];
@@ -16,7 +17,8 @@ export const Home = () => {
 
   return (
     <>
-      <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
+      <Shoesimageslider />
+      <div className=''>
         <div className='grid lg:grid-cols-5 sm:grid-cols-2 md:grid-cols-3'>
           {pending ? (
             dummy.map((items,index)=>{
