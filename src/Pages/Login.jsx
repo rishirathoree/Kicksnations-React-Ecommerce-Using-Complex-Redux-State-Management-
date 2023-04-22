@@ -1,14 +1,25 @@
 
 import React, { useState } from 'react'
 import sideImage from '../images/banner1.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { UserAuth } from '../Context/AuthContextProvider'
 export const Login = () => {
+    const {signIn } = UserAuth()
+    const navigate = useNavigate()
     const [email,setemail] = useState('')
     const [password,setpassword] = useState('')
-    const handleSubmit = (e) =>{
-        
+    const [Error,setError] = useState('')
+    const handleSubmit = async (e) =>{
+        e.preventDefault()
+        try{
+            await signIn(email,password)
+            navigate('/account')
+        }
+        catch(e){
+            setError(e.message)
+            console.log(e.message)
+        }
     }
-    console.log(email,password);
   return (
     <>
     <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
@@ -16,7 +27,7 @@ export const Login = () => {
         <div className='sm:hidden md:hidden lg:block'>
             <img src={sideImage} className='w-full h-full object-cover' alt="" />
         </div>
-        <div className='flex bg-[sideImage] justify-center px-2  items-center'>
+        <div className='flex bg-[sideImage] justify-center p-8  items-center'>
             <div className='shadow-2xl rounded-md flex p-8   flex-col items-center justify-center'>
                 <div className='text-center -space-y-2'>
                 <p className='font-light text-lg'>Login</p>
@@ -28,9 +39,9 @@ export const Login = () => {
                     <input onChange={(e)=>{setpassword(e.target.value)}} type="text" className='p-2 bg-gray-100 text-xsm mb-4 w-80 focus:outline-none' />
                     <button className='font-light text-white p-2 bg-black'>Login</button>
                 </form>
-                <p className='font-light mt-12 text-xsm'>Do you have an account?</p>
-                <Link to="/Signup"><p className='font-bold underline mt-2 text-blue-500 text-xsm'>Signup?</p></Link>
-                
+                <div><p className={`font-light duration-200 mt-2 text-xsm ${Error ? 'opacity-100 -translate-y-0' : 'opacity-0 -translate-y-5'}`}>Check password</p></div>
+                <p className='font-light mt-12 text-xsm'>Create new account</p>
+                <Link to="/Signup"><p className='font-bold underline mt-2 text-blue-500 text-xsm'>Signup</p></Link>
             </div>
         </div>
     </div>

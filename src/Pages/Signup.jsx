@@ -9,7 +9,7 @@ export const Signup = () => {
     const [Error,setError] = useState('')
     const navigate = useNavigate()
 
-    const { createUser } = UserAuth()
+    const { createUser } = UserAuth();
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -28,8 +28,8 @@ export const Signup = () => {
     <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
     <div className='grid w-full h-screen lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1'>
         
-        <div className='flex bg-[sideImage] justify-center px-2  items-center'>
-            <div className='shadow-2xl rounded-md flex p-8   flex-col items-center justify-center'>
+        <div className='flex  justify-center p-8  items-center'>
+            <div className='shadow-2xl rounded-md flex p-8 flex-col items-center justify-center'>
                 <div className='text-center -space-y-2'>
                 <p className='font-light text-lg'>Sign Up</p>
                 </div>

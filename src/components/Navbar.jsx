@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import { useSelector } from 'react-redux';
-
-
+import { UserAuth } from '../Context/AuthContextProvider';
 const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
 
 const Navbar = () => {
@@ -24,20 +23,6 @@ const Navbar = () => {
     </div>
                 {/* hamburger menusidebar  */}
                 <div className={`lg:w-1/5 md:w-1/5 overflow-y-auto sm:w-2/5 duration-100 -z-[100] lg:top-[118px] md:top-[92px] sm:top-[92px] left-0 absolute h-screen p-4 ${MenuVisible} bg-white border`}>
-                  <div>
-                    {/* if the authoutication is enabled then turn on navlinks  */}
-                  {/* <NavLink to="/account"> */}
-                  <div className='flex border-b  p-4 my-2  items-center justify-between'>
-                    <div>
-                      <div className='w-8 h-8 bg-gray-100 rounded-full'></div>
-                    </div>
-                    <div>
-                      <p className='font-light text-xsm'>Hello</p>
-                      <p className='font-light text-xsm'>Rishi</p>
-                    </div>
-                  </div>
-                  {/* </NavLink> */}
-                  </div>
                 <div className={`grid grid-cols-${navs.length}`} >
   {navs.map((items, index) => (
       <NavLink
@@ -51,11 +36,6 @@ const Navbar = () => {
         activeclassname="active-category"
         className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to='/cart'>
         Cart
-      </NavLink>
-      <NavLink
-        activeclassname="active-category"
-        className='text-[12px] hover:text-slate-600 uppercase duration-200 font-light py-1 px-3' to='/login'>
-        Login
       </NavLink>
     </div>
 
@@ -86,7 +66,7 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className='lg:block md:block sm:hidden'>
-            <NavLink to="/login">
+            <NavLink to="/account">
             <i
             className='bx p-1  bx-user'></i>
             </NavLink>

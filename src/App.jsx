@@ -14,8 +14,8 @@ import Product from "./Pages/Product";
 import { Signup } from "./Pages/Signup";
 import { Slides } from "./Pages/Slides";
 import Navbar from "./components/Navbar";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Protectroute from "./components/Protectroute";
 
 function App() {
   return (
@@ -30,7 +30,11 @@ function App() {
           <Route path="/Girls" element={<Girls />} />
           <Route path="/Slides" element={<Slides />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/Account" element={<Accountpage />} />
+          <Route path="/Account" element={
+          <Protectroute>
+          <Accountpage />
+          </Protectroute>
+          } />
           <Route path="/Apparel" element={<Apparel />} />
           <Route path="/Accessories" element={<Accessories />} />
           <Route path="/Signup" element={<Signup />} />

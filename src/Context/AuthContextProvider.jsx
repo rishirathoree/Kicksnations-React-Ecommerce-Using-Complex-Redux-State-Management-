@@ -9,26 +9,30 @@ import
 const UserContext = createContext()
 
 const AuthContextProvider = ({children}) => {
-    const [User,setUser] = useState({})
+    const [user,setUser] = useState({})
     const createUser = (email,password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const logout = (auth) => {
-        return signOut(auth)
+    const logout = () => {
+        return (signOut(auth))
+    }
+
+    const signIn = (email,password) =>{
+        return signInWithEmailAndPassword(auth,email,password)
     }
 
     useEffect(()=>{
         const unsubcribe = onAuthStateChanged(auth, (currentUser)=>{
-            console.log(User);
+            console.log(user);
             setUser(currentUser)
-        })
+        });
         return () =>{
             unsubcribe()
         }
-    })
+    },[])
   return (
-   <UserContext.Provider value={{createUser,User,logout}}>
+   <UserContext.Provider value={{createUser, user ,logout,signIn}}>
     {children}
    </UserContext.Provider>
   )

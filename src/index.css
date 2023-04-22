@@ -14,3 +14,25 @@
 *{margin: 0;padding: 0;box-sizing: border-box;font-family: 'Poppins', sans-serif;}
 
 .text-xsm{font-size: 12px;}
+
+/* Styles for the scrollbar track */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+  }
+  
+  /* Styles for the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888888;
+    border-radius: 30px;
+  }
+  
+  /* Styles for the scrollbar itself */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Optional: hover styles for the scrollbar thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555555;
+  }
+  
