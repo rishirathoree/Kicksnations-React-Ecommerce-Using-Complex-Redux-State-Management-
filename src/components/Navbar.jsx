@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className={`duration-300 ${MenuVisible === 'translate-x-0' ? 'translate-y-1 rotate-45' : ''} w-4 h-[1px] bg-black`}></div>
     </div>
                 {/* hamburger menusidebar  */}
-                <div className={`lg:w-1/5 md:w-1/5 overflow-y-auto sm:w-2/5 duration-100 -z-[100] lg:top-[118px] md:top-[118px] sm:top-[92px] left-0 absolute h-screen p-4 ${MenuVisible} bg-white border`}>
+                <div className={`lg:w-1/5 md:w-1/5 overflow-y-auto sm:w-2/5 duration-100 -z-[100] lg:top-[118px] md:top-[92px] sm:top-[92px] left-0 absolute h-screen p-4 ${MenuVisible} bg-white border`}>
                   <div>
                     {/* if the authoutication is enabled then turn on navlinks  */}
                   {/* <NavLink to="/account"> */}
@@ -81,7 +81,10 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className='lg:block md:block sm:hidden'>
-            <i className='bx p-1  bx-user'></i>
+            <NavLink to="/login">
+            <i
+            className='bx p-1  bx-user'></i>
+            </NavLink>
             </div>
           </div>
         </div>
