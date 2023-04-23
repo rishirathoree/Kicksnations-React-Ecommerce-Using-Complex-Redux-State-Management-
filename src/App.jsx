@@ -21,8 +21,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
           <AuthContextProvider>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Basketball" element={<Basketball />} />

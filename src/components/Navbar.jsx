@@ -1,21 +1,62 @@
-import { useState } from 'react';
+import { useRef, useState,useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import { useSelector } from 'react-redux';
 import { UserAuth } from '../Context/AuthContextProvider';
 const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
-
+import dp from '../images/dp.png'
 const Navbar = () => {
+  const {user,logout} = UserAuth()
+  const menuSidebar = useRef(null)
+  const userInfos = useRef(null)
+  const [userInfo,setuserInfo] = useState(false)
   const [MenuVisible, setMenuVisible] = useState('-translate-x-full')
   const Cart = useSelector((state)=>state.Cart.cart)
   const toggleMenu = () => {
     setMenuVisible(MenuVisible === '-translate-x-full' ? 'translate-x-0' : '-translate-x-full')
   }
+  const handleLogout = async () => {
+    try{
+      await logout()
+    }
+    catch(e){
+      console.log(e.message)
+    }
+  }
+  const toggleUserInfo = () => {
+    setuserInfo(userInfo === false ? true : false)
+  }
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      if (menuSidebar.current && !menuSidebar.current.contains(event.target)) {
+        setMenuVisible('-translate-x-full');
+      }
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      if (userInfos.current && !userInfos.current.contains(event.target)) {
+        setuserInfo(false);
+      }
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
   return (
     <>
       <div className='w-full fixed top-0 z-50 bg-white right-0 p-1 shadow'>
         <div className='w-full h-full  p-4 flex justify-between items-center'>
-            <div>
+            <div ref={menuSidebar} className='Menu-sidebar'>
             <div className="menu-toggle p-1" onClick={toggleMenu}>
       <div className={`duration-300 ${MenuVisible === 'translate-x-0' ? 'translate-y-[5px] -rotate-45' : 'translate-y-0 rotate-0'} w-4 h-[1px] bg-black`}></div>
       <div className={`my-1 duration-300 ${MenuVisible === 'translate-x-0' ? 'hidden' : ''} w-4 h-[1px] bg-black`}></div>
@@ -72,10 +113,26 @@ const Navbar = () => {
               </NavLink>
             </div>
             <div className='lg:block md:block sm:hidden'>
-            <NavLink to="/account">
+              {!user ? <NavLink to="/account">
             <i
             className='bx p-1  bx-user'></i>
-            </NavLink>
+            </NavLink> 
+            : 
+            <div ref={userInfos} className='relative'>
+              <div onClick={toggleUserInfo}  className='w-6 h-6 rounded-full profile-account flex items-center  overflow-hidden justify-center bg-gray-100'>
+            <img src={dp} className='w-full h-full' alt="" />
+          </div>
+          <div className={`absolute User-info shadow z-[100] bg-white duration-100 profile-accout flex-col flex justify-end p-2 w-max rounded-md  top-10 right-0 ${userInfo ? 'translate-y-0 scale-100 visible' : 'invisible scale-75 -translate-y-2 '}`}>
+          <NavLink to="/account">
+          <p className='font-light text-xsm p-1 text-right'>User Account</p>
+          </NavLink>
+          <button 
+          onClick={handleLogout}
+          className='font-light text-xsm p-1 text-right'>Logout</button>
+          </div>
+            </div>
+            }
+            
             </div>
           </div>
         </div>

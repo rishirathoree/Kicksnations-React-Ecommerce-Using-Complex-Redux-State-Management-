@@ -36,3 +36,8 @@
     background-color: #555555;
   }
   
+  .profile-account:hover .User-info {
+    visibility: visible;
+    opacity: 1;
+  }
+  
