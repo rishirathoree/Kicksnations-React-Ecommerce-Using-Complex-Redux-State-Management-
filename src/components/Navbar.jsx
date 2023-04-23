@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import { useSelector } from 'react-redux';
 import { UserAuth } from '../Context/AuthContextProvider';
-const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
+export const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
 import dp from '../images/dp.png'
 const Navbar = () => {
   const {user,logout} = UserAuth()
@@ -38,7 +38,7 @@ const Navbar = () => {
     return () => {
       document.removeEventListener('click', handleDocumentClick);
     };
-  }, []);
+  }, [menuSidebar]);
   useEffect(() => {
     const handleDocumentClick = (event) => {
       if (userInfos.current && !userInfos.current.contains(event.target)) {
@@ -51,7 +51,7 @@ const Navbar = () => {
     return () => {
       document.removeEventListener('click', handleDocumentClick);
     };
-  }, []);
+  }, [userInfos]);
   return (
     <>
       <div className='w-full fixed top-0 z-50 bg-white right-0 p-1 shadow'>
