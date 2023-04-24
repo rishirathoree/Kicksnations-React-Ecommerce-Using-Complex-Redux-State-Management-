@@ -41,7 +41,7 @@ export const Signup = () => {
                     <button className='font-light text-xsm text-white p-2 bg-black'>Sign Up</button>
                 </form>
                 <button 
-                    onClick={()=>{loginUsingGoogleAccount()}}
+                    onClick={loginUsingGoogleAccount}
                     className='font-bold w-full mt-2 text-white p-2 bg-blue-500'>Google</button>
                 <p className='font-light mt-12 text-xsm'>Do you have an account?</p>
                 <Link to="/login"><p className='font-bold underline mt-2 text-blue-500 text-xsm'>Login?</p></Link>
