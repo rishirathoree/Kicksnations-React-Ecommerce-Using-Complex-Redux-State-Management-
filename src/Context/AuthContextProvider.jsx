@@ -18,16 +18,18 @@ const AuthContextProvider = ({children}) => {
     const createUser = (email,password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
-    const loginUsingGoogleAccount = async () =>{
-        try{
-            const result = await signInWithPopup(auth, new GoogleAuthProvider())
-            setUser(result.user)
-            navigate('/')
-        }
-        catch(e){
-            console.log(e.message)
-        }
-    }
+
+    // login account using the google button if website hosted then enable this code    
+    // const loginUsingGoogleAccount = async () =>{
+    //     try{
+    //         const result = await signInWithPopup(auth, new GoogleAuthProvider())
+    //         setUser(result.user)
+    //         navigate('/')
+    //     }
+    //     catch(e){
+    //         console.log(e.message)
+    //     }
+    // }
 
     const logout = () => {
         return (signOut(auth))
@@ -46,7 +48,9 @@ const AuthContextProvider = ({children}) => {
         }
     },[])
   return (
-   <UserContext.Provider value={{createUser, user ,logout,signIn, loginUsingGoogleAccount}}>
+   <UserContext.Provider value={{createUser, user ,logout,signIn, 
+//    loginUsingGoogleAccount
+   }}>
     {children}
    </UserContext.Provider>
   )

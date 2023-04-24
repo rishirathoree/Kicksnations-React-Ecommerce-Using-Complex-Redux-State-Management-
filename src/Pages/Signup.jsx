@@ -9,7 +9,7 @@ export const Signup = () => {
     const [Error,setError] = useState('')
     const navigate = useNavigate()
 
-    const { createUser, loginUsingGoogleAccount } = UserAuth();
+    const { createUser } = UserAuth();
 
     const handleSubmit = async (e) =>{
         e.preventDefault()

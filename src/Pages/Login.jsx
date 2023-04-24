@@ -4,7 +4,7 @@ import sideImage from '../images/banner1.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { UserAuth } from '../Context/AuthContextProvider'
 export const Login = () => {
-    const {signIn,user, loginUsingGoogleAccount } = UserAuth() || {}
+    const {signIn,user } = UserAuth() || {}
     const navigate = useNavigate()
     const [email,setemail] = useState('')
     const [password,setpassword] = useState('')
