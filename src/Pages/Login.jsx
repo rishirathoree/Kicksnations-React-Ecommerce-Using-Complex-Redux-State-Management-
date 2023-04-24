@@ -40,9 +40,7 @@ export const Login = () => {
                     <input onChange={(e)=>{setpassword(e.target.value)}} type="text" className='p-2 bg-gray-100 text-xsm mb-4 w-80 focus:outline-none' />
                     <button className='font-light text-white p-2 bg-black'>Login</button>
                 </form>
-                    <button 
-                    onClick={loginUsingGoogleAccount}
-                    className='font-bold w-full mt-2 text-white p-2 bg-blue-500'>Google</button>
+                    
                 <div><p className={`font-light duration-200 mt-2 text-xsm ${Error ? 'opacity-100 -translate-y-0' : 'opacity-0 -translate-y-5'}`}>Something is wrong</p></div>
                 <p className='font-light mt-2 text-xsm'>Create new account</p>
                 <Link to="/Signup"><p className='font-bold underline mt-2 text-blue-500 text-xsm'>Signup</p></Link>
