@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import jordans from '../images/jordans.png'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,8 +10,15 @@ const Product = () => {
   const products = useSelector((state) => state.Products.data.products);
   const singleProduct = products.find((product)=>product.id === parseInt(id))
   const {brand,title,price,description} = singleProduct
-  const similarProducts = products.filter((item) => item.category === singleProduct.category && item.id !== singleProduct.id);
-    
+  const similarProducts = products.filter((item) => item.category === singleProduct.category && item.id !== singleProduct.id);  
+  useEffect(() => {
+    const scrollToTop = () => {
+      window.scrollTo(0, 0)
+    }
+    return () => {
+      scrollToTop()
+    }
+  }, [])  
   return (
     <>
     <div className='mt-32 flex w-full h-full'>
@@ -26,12 +33,7 @@ const Product = () => {
             <p className='font-light text-[12px]  mt-2 '>MRP inclusive of all taxes</p>
             <p className='font-light text-[10px]  mt-2 '>{description}</p>
             <ul className='my-4'>
-                <li  className='font-bold text-[10px] w-2/3'>Lace closure</li>
-                <li  className='font-bold text-[10px] w-2/3'>Lace closure</li>
-                <li  className='font-bold text-[10px] w-2/3'>Lace closure</li>
-                <li  className='font-bold text-[10px] w-2/3'>Lace closure</li>
-                <li  className='font-bold text-[10px] w-2/3'>Lace closure</li>
-                <li  className='font-bold text-[10px] w-2/3'>Lace closure</li>
+                <li  className='font-bold text-[10px] w-2/3'>Classification of products comes here.</li>
             </ul>
             <button
             onClick={()=>{
