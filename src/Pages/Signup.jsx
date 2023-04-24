@@ -9,7 +9,7 @@ export const Signup = () => {
     const [Error,setError] = useState('')
     const navigate = useNavigate()
 
-    const { createUser } = UserAuth();
+    const { createUser, loginUsingGoogleAccount } = UserAuth();
 
     const handleSubmit = async (e) =>{
         e.preventDefault()
@@ -40,6 +40,9 @@ export const Signup = () => {
                     <input onChange={(e)=>{setpassword(e.target.value)}} type="text" className='p-2 bg-gray-100 text-xsm mb-4 w-80 focus:outline-none' />
                     <button className='font-light text-xsm text-white p-2 bg-black'>Sign Up</button>
                 </form>
+                <button 
+                    onClick={()=>{loginUsingGoogleAccount()}}
+                    className='font-bold w-full mt-2 text-white p-2 bg-blue-500'>Google</button>
                 <p className='font-light mt-12 text-xsm'>Do you have an account?</p>
                 <Link to="/login"><p className='font-bold underline mt-2 text-blue-500 text-xsm'>Login?</p></Link>
                 

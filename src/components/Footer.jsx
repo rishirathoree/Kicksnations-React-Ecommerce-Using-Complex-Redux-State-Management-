@@ -12,8 +12,8 @@ const Footer = () => {
             </NavLink>
         </div>
         <div className='flex items-center sm:justify-center lg:justify-end'>
-        <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
-        {navs.map((items,idx)=>{return <NavLink key={idx} to={items}><span className='font-light text-sm uppercase'>{items}</span></NavLink>})}
+        <div className='grid md:grid-cols-4 lg:grid-cols-3'>
+        {navs.map((items,index)=>{return <NavLink key={index} to={items}><span className='font-light text-sm uppercase'>{items}</span></NavLink>})}
         </div>
         </div>
     </div>

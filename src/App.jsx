@@ -16,7 +16,7 @@ import { Slides } from "./Pages/Slides";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Protectroute from "./components/Protectroute";
-import Footer from "./Pages/Footer";
+import Footer from "./components/Footer";
 
 function App() {
   return (

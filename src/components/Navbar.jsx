@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import { useSelector } from 'react-redux';
 import { UserAuth } from '../Context/AuthContextProvider';
-export const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
+const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
 import dp from '../images/dp.png'
 const Navbar = () => {
-  const {user,logout} = UserAuth()
+  const {user,logout} = UserAuth() || {}
   const menuSidebar = useRef(null)
   const userInfos = useRef(null)
   const [userInfo,setuserInfo] = useState(false)
