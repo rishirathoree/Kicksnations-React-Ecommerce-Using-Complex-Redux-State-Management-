@@ -1,13 +1,15 @@
 import { useRef, useState,useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+
 import 'boxicons/css/boxicons.min.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { UserAuth } from '../Context/AuthContextProvider';
 const navs = ['footwear','apparel','girls','basketball','slides','accessories'];
 import dp from '../images/dp.png'
 const Navbar = () => {
   const {user,logout} = UserAuth() || {}
   const menuSidebar = useRef(null)
+  const dispatch = useDispatch()
   const userInfos = useRef(null)
   const [userInfo,setuserInfo] = useState(false)
   const [MenuVisible, setMenuVisible] = useState('-translate-x-full')

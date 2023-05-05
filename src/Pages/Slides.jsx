@@ -19,10 +19,12 @@ export const Slides = () => {
       <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
         <div className='grid lg:grid-cols-5 sm:grid-cols-2 md:grid-cols-3'>
           {pending ? (
-            dummy.map((items)=>{
-                return(
-                    <div className='product-img h-60 flex animate-pulse items-center justify-center  w-full'>
-              <img src={jordans} className='w-9 h-8 ' alt='' />
+            dummy.map((index)=>{
+              return(
+                <div key={index} className='w-full h-[300px] bg-white  rounded-lg p-4'>
+                <div className='w-full h-[200px] rounded-lg animate-pulse bg-gray-100'></div>
+                <div className='w-2/3 h-4 mt-3 rounded-lg animate-pulse bg-gray-100'></div>
+                <div className='w-1/3 h-4 mt-3 rounded-lg animate-pulse bg-gray-100'></div>
             </div>
                 )
             })

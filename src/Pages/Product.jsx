@@ -3,14 +3,22 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import jordans from '../images/jordans.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../actions/Cartaction'
+import { FetchUser } from '../actions/Productaction'
 const Product = () => {
     const navigate = useNavigate()
     const { id } = useParams()
     const dispatch = useDispatch()
-  const products = useSelector((state) => state.Products.data.products);
-  const singleProduct = products.find((product)=>product.id === parseInt(id))
-  const {brand,title,price,description} = singleProduct
-  const similarProducts = products.filter((item) => item.category === singleProduct.category && item.id !== singleProduct.id);  
+  const Data = useSelector((state) => state.Products.data);
+  const result = useSelector((state) => state.Products.data.products);
+  useEffect(() => {
+    dispatch(FetchUser());
+  }, [dispatch]);
+  const singleProd = result && result.find((item) => item.id === parseInt(id));
+  // taking the items needed to display from the object 
+  const{brand,title,price,description} = singleProd
+  const similarProducts = result.filter((item)=>item.category === singleProd.category && item.id !== singleProd.id)
+  console.log(singleProd);
+
   useEffect(() => {
     const scrollToTop = () => {
       window.scrollTo(0, 0)
@@ -18,7 +26,8 @@ const Product = () => {
     return () => {
       scrollToTop()
     }
-  }, [])  
+  }, [])
+    
   return (
     <>
     <div className='mt-32 flex w-full h-full'>
@@ -37,7 +46,7 @@ const Product = () => {
             </ul>
             <button
             onClick={()=>{
-                dispatch(addToCart(singleProduct)
+                dispatch(addToCart(singleProd)
                 )}}
             className='w-full font-light text-[10px] p-3 bg-black text-white'>ADD TO CART</button>
             <div className='flex items-center gap-4 mt-4 justify-between'>

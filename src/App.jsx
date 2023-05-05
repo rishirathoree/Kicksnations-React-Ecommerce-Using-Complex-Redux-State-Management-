@@ -17,6 +17,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Protectroute from "./components/Protectroute";
 import Footer from "./components/Footer";
+import Search from "./Pages/Search";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/Footwear" element={<Footwear />} />
           <Route path="/Girls" element={<Girls />} />
           <Route path="/Slides" element={<Slides />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Account" element={
           <Protectroute>

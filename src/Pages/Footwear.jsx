@@ -3,7 +3,7 @@ import jordans from '../images/jordans.png';
 import { FetchUser } from '../actions/Productaction';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import Filterdatadiv from '../components/Filterdatadiv';
 export const Footwear = () => {
   const dummy = [1, 2, 3, 4, 5, 6,7,8,8,9];
   const dispatch = useDispatch();
@@ -11,19 +11,20 @@ export const Footwear = () => {
   useEffect(() => {
     dispatch(FetchUser());
   }, [dispatch]);
-
   const { data, pending, error } = useSelector((state) => state.Products);
-
   return (
     <>
       <div className='lg:mt-[116px] md:mt-[92px] sm:mt-[92px]'>
+      <Filterdatadiv />
         <div className='grid lg:grid-cols-5 sm:grid-cols-2 md:grid-cols-3'>
           {pending ? (
-            dummy.map((items)=>{
+            dummy.map((items,index)=>{
                 return(
-                    <div className='product-img h-60 flex animate-pulse items-center justify-center  w-full'>
-              <img src={jordans} className='w-9 h-8 ' alt='' />
-            </div>
+                  <div key={index} className='w-full h-[300px] bg-white  rounded-lg p-4'>
+                  <div className='w-full h-[200px] rounded-lg animate-pulse bg-gray-100'></div>
+                  <div className='w-2/3 h-4 mt-3 rounded-lg animate-pulse bg-gray-100'></div>
+                  <div className='w-1/3 h-4 mt-3 rounded-lg animate-pulse bg-gray-100'></div>
+              </div>
                 )
             })
           ) : (

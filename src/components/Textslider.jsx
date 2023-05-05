@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const categories = ['basketball', 'slides'];
+const categories = ['basketball', 'slides','footwear', 'slides'];
 
 const TextSlider = () => {
   const [currentText, setCurrentText] = useState(0);
@@ -21,11 +21,13 @@ const TextSlider = () => {
         {categories.map((item, index) => (
           <div
             key={index}
-            className={`w-full overflow-hidden ${
-              index === currentText ? 'h-8' : 'h-0 '
+            className={`w-full duration-500 overflow-hidden ${
+              index === currentText ? 'h-8' : 'h-0'
+            //   if add the animation to text enable if you want 
+            //   index === currentText ? 'h-8 traslate-y-0 ' : 'h-0 traslate-y-10 '
             }`}
           >
-            <p className='text-center font-bold lg:text-3xl md:text-lg uppercase text-md'>Try out our new <span className={` duration-700 ${index === currentText ? 'opacity-100' : 'opacity-0'}`}>{item}</span> </p>
+          <span className={`${index === currentText ? '-translate-y-0': '-translate-y-10'} text-center font-bold lg:text-3xl md:text-lg uppercase text-md`}>{item}</span>
           </div>
         ))}
       </div>
